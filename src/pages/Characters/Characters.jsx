@@ -10,7 +10,9 @@ console.log(import.meta.env.VITE_BACKEND_URL);
 
     const [charactersDatas, setCharactersDatas] = useState(null)
     const [handleError, setHandleError] = useState(null)
-console.log(charactersDatas);
+    const [isLoading, setIsLoading] = useState(true)
+    
+    console.log(charactersDatas);
 
     useEffect(() => {
         const fetchCharacters = async() => {
@@ -19,8 +21,10 @@ console.log(charactersDatas);
                   const datas = await axios.get(`${import.meta.env.VITE_BACKEND_URL}/characters`)
 
                   setCharactersDatas(datas.data)
+                  setIsLoading(false)
             } catch (error) {
                 setHandleError(error.message)
+                setIsLoading(false)
             }
            
             
@@ -36,18 +40,24 @@ return <main className="characters">
         <Filter name={"characters-search"}/>
    
     <section className="characters-section">
+
+        {isLoading ? <div className="loader-container"><span class="loader"></span></div>  : handleError ? <div className="loader-container">Une erreur est survenue: {handleError}</div> : 
         <div className="characters-display">
             {charactersDatas && charactersDatas.results.map((character) => {
-              return  <Link className="character-card">
+
+              return  <Link to={`/characters-details/${character._id}`} className="character-card">
+
                     <img src={character.thumbnail ? character.thumbnail.path + "." + character.thumbnail.extension : null} alt="Photo du personnage" />
+
                     <div className="details">
+
                         <h3>{character.name && character.name}</h3>
-                    <p>{character.description && character.description} </p>
+                        <p>{character.description && character.description} </p>
                     </div>
                     
                 </Link>
             })}
-        </div>
+        </div>}
 
     </section>
      </div>
