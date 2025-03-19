@@ -1,0 +1,51 @@
+@import url("./assets/css/reset.css");
+
+:root {
+  --main-color: #EC1D24;
+  --snd-color: #151515;
+  --thd-color:#202020;
+  --text-color: #FFFFFF;
+
+
+}
+/*
+ background: #c31432;  
+  background: -webkit-linear-gradient(to right, #240b36, #c31432);  
+  background: linear-gradient(to right, #240b36, #c31432)
+*/
+
+*{
+  box-sizing: border-box;
+}
+
+body {
+ background-color: var(--snd-color);
+ color: var(--text-color);
+ font-family: "Roboto", sans-serif;;
+}
+
+#root {
+ min-height: 100vh;
+  width: 100%;
+  max-width: 1920px;
+  margin: auto;
+  background: var(--main-color) ;
+  background: -webkit-linear-gradient(to right, var(--thd-color), var(--main-color));  
+  background: linear-gradient(to right, var(--thd-color), var(--main-color))
+}
+
+
+.container {
+  max-width: 1200px;
+  margin: auto;
+}
+
+a {
+  color: var(--text-color);
+  text-decoration: none;
+}
+
+h1 {
+  font-weight: 600;
+  font-size: 3.5em;
+}
