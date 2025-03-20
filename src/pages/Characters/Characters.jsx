@@ -2,9 +2,9 @@ import ("./characters.css")
 import Filter from "../../components/Filter/filter"
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
 import Pagination from "../../components/Pagination/pagination";
-import Favorites from "../../components/Favorites/Favorites";
+import CharacterCard from "../../components/CharacterCard/CharacterCard";
+import Cookies from "js-cookie"
 
 
 const Characters = () => {
@@ -13,16 +13,22 @@ const Characters = () => {
     const [handleError, setHandleError] = useState(null)
     const [isLoading, setIsLoading] = useState(true)
     const [filters, setFilters] = useState({name: "", page: 1})
+
+    //favorites logic
+    const [favorites, setFavorites] = useState(null)
+    console.log(favorites);
     
     useEffect(() => {
+
         const fetchCharacters = async() => {
-console.log(filters.page);
 
             try {
                   const datas = await axios.get(`${import.meta.env.VITE_BACKEND_URL}/characters?${"page="+ filters.page}${filters.name && "&name=" + filters.name}`)
 
                   setCharactersDatas(datas.data)
                   setIsLoading(false)
+                  setFavorites(Cookies.get())
+
             } catch (error) {
                 setHandleError(error.message)
                 setIsLoading(false)
@@ -47,21 +53,7 @@ return <main className="characters">
             charactersDatas.count === 0 ? <h3 className="loader-container">Aucun résultat</h3> : <div className="characters-display">
             {charactersDatas && charactersDatas.results.map((character) => {
 
-              return  <div key={character._id} className="wrap-characters">
-                    <Link  to={`/characters-details/${character._id}`} className="character-card">
-
-                   
-                    <img src={character.thumbnail ? character.thumbnail.path + "/portrait_incredible" + "." + character.thumbnail.extension : null} alt="Photo du personnage" />
-
-                    <div className="details">
-
-                        <h3>{character.name && character.name}</h3>
-                        <p>{character.description && character.description} </p>
-                    </div>
-                    
-                </Link>
-                 <Favorites character={character}/>
-                </div>
+              return  <CharacterCard key={character._id} character={character} favorites={favorites} setFavorites={setFavorites}/>
             })}
         </div>}
 
