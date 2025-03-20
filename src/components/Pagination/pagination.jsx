@@ -18,7 +18,7 @@ return  <div className="container">
     </div>
      
         <div className="pages">
-            {filters.page + " / " + pages}
+            {pages === 0 ? 0 : filters.page + " / " + pages}
         </div>
         <div className="arrow-container">
              {filters.page < pages && <div className="arrows" onClick={(event) => updatePagination(event, "+",filters, setFilters)}>

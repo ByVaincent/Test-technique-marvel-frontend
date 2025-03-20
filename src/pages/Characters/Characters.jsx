@@ -4,6 +4,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import Pagination from "../../components/Pagination/pagination";
+import Favorites from "../../components/Favorites/Favorites";
 
 
 const Characters = () => {
@@ -36,16 +37,20 @@ console.log(filters.page);
 
 return <main className="characters">
     <div className="container">
-        <Filter name={"characters-search"}/>
+        <Filter name={"characters-search"} filters={filters} setFilters={setFilters}/>
    
     <section className="characters-section">
+    
 
-        {isLoading ? <div className="loader-container"><span className="loader"></span></div>  : handleError ? <div className="loader-container">Une erreur est survenue: {handleError}</div> : 
-        <div className="characters-display">
+        {isLoading ? <div className="loader-container"><span className="loader"></span></div>  :
+            handleError ? <div className="loader-container">Une erreur est survenue: {handleError}</div> : 
+            charactersDatas.count === 0 ? <h3 className="loader-container">Aucun résultat</h3> : <div className="characters-display">
             {charactersDatas && charactersDatas.results.map((character) => {
 
-              return  <Link key={character._id} to={`/characters-details/${character._id}`} className="character-card">
+              return  <div key={character._id} className="wrap-characters">
+                    <Link  to={`/characters-details/${character._id}`} className="character-card">
 
+                   
                     <img src={character.thumbnail ? character.thumbnail.path + "/portrait_incredible" + "." + character.thumbnail.extension : null} alt="Photo du personnage" />
 
                     <div className="details">
@@ -55,6 +60,8 @@ return <main className="characters">
                     </div>
                     
                 </Link>
+                 <Favorites character={character}/>
+                </div>
             })}
         </div>}
 

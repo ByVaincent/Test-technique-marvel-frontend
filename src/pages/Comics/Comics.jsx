@@ -3,20 +3,21 @@ import Filter from "../../components/Filter/filter"
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import Pagination from "../../components/Pagination/pagination";
 
 const Comics = () => {
 
     const [comicsDatas, setcomicsDatas] = useState(null)
     const [handleError, setHandleError] = useState(null)
     const [isLoading, setIsLoading] = useState(true)
-    
+    const [filters, setFilters] = useState({name: "", page: 1})
     console.log(comicsDatas);
 
     useEffect(() => {
         const fetchcomics = async() => {
 
             try {
-                  const datas = await axios.get(`${import.meta.env.VITE_BACKEND_URL}/comics`)
+                  const datas = await axios.get(`${import.meta.env.VITE_BACKEND_URL}/comics?${"page="+ filters.page}${filters.name && "&name=" + filters.name}`)
 
                   setcomicsDatas(datas.data)
                   setIsLoading(false)
@@ -30,11 +31,11 @@ const Comics = () => {
         }   
         fetchcomics()
 
-    }, [])
+    }, [filters])
 
 return <main className="comics">
 <div className="container">
-    <Filter name={"comics-search"}/>
+    <Filter className={"comics-search"} name={filters.title} filters={filters} setFilters={setFilters}/>
 
 <section className="comics-section">
 
@@ -58,6 +59,7 @@ return <main className="comics">
 
 </section>
  </div>
+ {isLoading || <Pagination filters={filters} setFilters={setFilters} count={comicsDatas.count}/>}
 </main>
 }
 export default Comics
