@@ -11,9 +11,6 @@ const CharactersDetails = () => {
     const [handleError, setHandleError] = useState(null)
     const [isLoading, setIsLoading] = useState(true)
     
-console.log(charactersDatas);
-
-    
     useEffect(() => {
         const fetchCharacter = async() => {
 
@@ -32,6 +29,8 @@ console.log(charactersDatas);
 
         fetchCharacter()
     }, [id])
+
+
 return <main>
     <div className="container">
         {isLoading ? <div className="loader-container"></div>  : handleError ? <div className="loader-container">Une erreur est survenue: {handleError}</div> : 
@@ -39,7 +38,7 @@ return <main>
         <section className="character">
             <div className="character-details">
                 <div className="character-thumbnail">
-                    <img src={charactersDatas.thumbnail ? charactersDatas.thumbnail.path + "." + charactersDatas.thumbnail.extension : null} alt="" />
+                    <img src={charactersDatas.thumbnail ? charactersDatas.thumbnail.path +  "." + charactersDatas.thumbnail.extension : null} alt="" />
                 </div>
                 <div className="character-description">
                     <h3>{charactersDatas.name && charactersDatas.name}</h3>
@@ -48,8 +47,17 @@ return <main>
             </div>
 
             <div className="character-comics">
-                <div className="character-carousel">
-                    {/* aller chercher les datas des comics */}
+                 <h3>Retrouvez {charactersDatas.name && charactersDatas.name} dans :</h3>
+                <div className="character-comics-carousel">
+                   
+                        {charactersDatas.comicsDetails && charactersDatas.comicsDetails.map((comics) => {
+                        return <div key={comics._id} className="characters-comics-details">
+                            <div>
+                               {comics.thumbnail && <img src={comics.thumbnail.path + "/portrait_fantastic" + "." + comics.thumbnail.extension} alt="Image du comics" />} 
+                            </div>
+                            {comics.title && comics.title}
+                        </div>
+                         })}
                 </div>
             </div>
 

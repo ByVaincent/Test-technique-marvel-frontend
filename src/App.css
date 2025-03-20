@@ -43,6 +43,12 @@ body {
 a {
   color: var(--text-color);
   text-decoration: none;
+  transition: all ease 0.3s;
+}
+
+.nav-link:hover {
+  cursor: pointer;
+  transform: scale(1.2);
 }
 
 h1 {
