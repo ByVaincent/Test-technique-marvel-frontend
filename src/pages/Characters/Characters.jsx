@@ -15,7 +15,7 @@ const Characters = () => {
     const [filters, setFilters] = useState({name: "", page: 1})
 
     //favorites logic
-    const [favorites, setFavorites] = useState(null)
+    const [favorites, setFavorites] = useState({})
     console.log(favorites);
     
     useEffect(() => {
