@@ -19,9 +19,8 @@ const Favorites = ({ character, favorites, setFavorites }) => {
       //check is character is already in favorites
       for (let id in favorites) {
         if (id === character._id) {
-          console.log("remove", character.name);
           Cookies.remove(character._id);
-          console.log("get =>", Cookies.get());
+
           isDeleted = true;
 
           setFavorites(() => {
@@ -32,7 +31,6 @@ const Favorites = ({ character, favorites, setFavorites }) => {
       }
 
       if (!isDeleted) {
-        console.log("set 2", character.name);
         Cookies.set(character._id, character.name, { expires: 1 });
         setFavorites(() => {
           const newState = Cookies.get();
@@ -40,7 +38,6 @@ const Favorites = ({ character, favorites, setFavorites }) => {
         });
       }
     } else {
-      console.log("set 2", character.name);
       Cookies.set(character._id, character.name, { expires: 1 });
       setFavorites(() => {
         const newState = Cookies.get();
