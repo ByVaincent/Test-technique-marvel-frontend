@@ -16,25 +16,19 @@ const FavoritesPage = () => {
   const [favorites, setFavorites] = useState({});
 
   useEffect(() => {
-    const favoritesCookies = Cookies.get();
-    const favoritesId = Object.keys(favoritesCookies);
-
     const fetchCharacters = async () => {
       try {
-        const arrayOfPromise = favoritesId.map((id) => {
-          return axios.get(
-            `${import.meta.env.VITE_BACKEND_URL}/characters/${id}`
-          );
-        });
+        const favoritesCharacters = await axios.get(
+          `${import.meta.env.VITE_BACKEND_URL}/favorites`,
+          {
+            headers: {
+              Authorization:
+                "Bearer MYTTK_oiIOQfamjjs7DmXMHKf0Br1_qW_a_LAKO2Xaq_sFDkPVdxL88ue-f3qQDd",
+            },
+          }
+        );
 
-        const results = await Promise.all(arrayOfPromise);
-        //extract the charactersDetails
-        const favoritesCharacters = results.map((response) => {
-          return response.data;
-        });
-
-        setCharactersDatas(favoritesCharacters);
-        setFavorites(favoritesCookies);
+        setCharactersDatas(favoritesCharacters.data.favoritesCharacters);
         setIsLoading(false);
       } catch (error) {
         setHandleError(error.message);
