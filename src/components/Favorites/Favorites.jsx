@@ -1,16 +1,23 @@
 import "./favorites.css";
 import Cookies from "js-cookie";
 
-const Favorites = ({ character, favorites, setFavorites }) => {
+const Favorites = ({ character, token, favorites, setFavorites }) => {
   //display favorite on or off
   let isFavorite = false;
 
-  Object.keys(favorites).length > 0 &&
-    Object.keys(favorites).forEach((id) => {
-      if (id === character._id) {
-        isFavorite = true;
-      }
-    });
+  console.log(favorites);
+
+  favorites.forEach((favoriteCharacter) => {
+    if (character._id === favoriteCharacter._id) {
+      isFavorite = true;
+    }
+  });
+  // Object.keys(favorites).length > 0 &&
+  //   Object.keys(favorites).forEach((id) => {
+  //     if (id === character._id) {
+  //       isFavorite = true;
+  //     }
+  //   });
 
   //update favorites
   const addToFavorites = async () => {

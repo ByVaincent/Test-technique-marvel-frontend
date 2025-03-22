@@ -8,11 +8,15 @@ import CharactersDetails from "./pages/CharactersDetails/CharactersDetails";
 import Comics from "./pages/Comics/Comics";
 import Header from "./components/Header/Header";
 import FavoritesPage from "./pages/FavoritesPage/FavoritesPage";
+import ConnectionModal from "./components/ConnectionModal/ConnectionModal";
 
 function App() {
+  const [modal, setModal] = useState(false);
+  const [user, setUser] = useState(null);
+
   return (
     <Router>
-      <Header />
+      <Header setModal={setModal} user={user} setUser={setUser} />
       <Routes>
         <Route path="/" element={<Home />}></Route>
         <Route path="/characters" element={<Characters />}></Route>
@@ -23,6 +27,7 @@ function App() {
         <Route path="/comics" element={<Comics />}></Route>
         <Route path="/favorites" element={<FavoritesPage />}></Route>
       </Routes>
+      <ConnectionModal modal={modal} setModal={setModal} setUser={setUser} />
     </Router>
   );
 }

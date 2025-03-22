@@ -3,7 +3,7 @@ import NavigationLink from "../NavigationLink";
 import("./header.css");
 import logo from "/marvel_logo.svg";
 
-const Header = () => {
+const Header = ({ setModal, user, setUser }) => {
   return (
     <header>
       <div className="container">
@@ -11,7 +11,15 @@ const Header = () => {
           <div className="logo">
             <img src={logo} alt="Logo de Marvel" />
           </div>
-          <div className="login-signup">Login/Signup</div>
+          {user ? (
+            <button className="signup-login" onClick={() => setUser(null)}>
+              Se déconnecter
+            </button>
+          ) : (
+            <button className="signup-login" onClick={() => setModal("login")}>
+              Se connecter / S'inscire
+            </button>
+          )}
         </section>
         <nav>
           <NavigationLink text={"Accueil"} target={"/"} />

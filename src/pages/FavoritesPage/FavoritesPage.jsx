@@ -13,8 +13,10 @@ const FavoritesPage = () => {
   const [filters, setFilters] = useState({ name: "", page: 1 });
 
   //favorites logic
-  const [favorites, setFavorites] = useState({});
+  const [favorites, setFavorites] = useState(null);
 
+  const token =
+    "MYTTK_oiIOQfamjjs7DmXMHKf0Br1_qW_a_LAKO2Xaq_sFDkPVdxL88ue-f3qQDd";
   useEffect(() => {
     const fetchCharacters = async () => {
       try {
@@ -28,7 +30,7 @@ const FavoritesPage = () => {
           }
         );
 
-        setCharactersDatas(favoritesCharacters.data.favoritesCharacters);
+        setFavorites(favoritesCharacters.data.favoritesCharacters);
         setIsLoading(false);
       } catch (error) {
         setHandleError(error.message);
@@ -57,18 +59,19 @@ const FavoritesPage = () => {
             <div className="loader-container">
               Une erreur est survenue: {handleError}
             </div>
-          ) : charactersDatas.count === 0 ? (
+          ) : favorites.length === 0 ? (
             <h3 className="loader-container">Aucun résultat</h3>
           ) : (
             <div className="characters-display">
-              {charactersDatas &&
-                charactersDatas.map((character) => {
+              {favorites &&
+                favorites.map((character) => {
                   return (
                     <CharacterCard
                       key={character._id}
                       character={character}
                       favorites={favorites}
                       setFavorites={setFavorites}
+                      token={token}
                     />
                   );
                 })}
@@ -81,7 +84,7 @@ const FavoritesPage = () => {
         <Pagination
           filters={filters}
           setFilters={setFilters}
-          count={charactersDatas.length}
+          count={favorites.length}
         />
       )}
     </main>
