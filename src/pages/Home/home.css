@@ -6,7 +6,12 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.5);
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.7);
+  transition: all ease 0.2s;
+}
+
+.hero:hover {
+  box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.7);
 }
 
 .hero h1 {
@@ -17,6 +22,9 @@
 }
 
 .characters-link {
+  width: 20%;
+  background-color: white;
+  aspect-ratio: 9/12;
   background-image: url("/captain_america.jpg");
   background-position: center;
   background-size: cover;
@@ -26,6 +34,9 @@
 }
 
 .comics-link {
+  width: 20%;
+  background-color: whitesmoke;
+  aspect-ratio: 9/12;
   background: url("/comics.jpg") top;
   background-size: cover;
   display: flex;
