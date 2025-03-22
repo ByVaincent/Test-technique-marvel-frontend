@@ -71,55 +71,49 @@ const ConnectionModal = ({ modal, setModal, setUser }) => {
             <h2>Inscription</h2>
             <form onSubmit={submitForm}>
               <div className="form-input">
-                <label htmlFor="username">
-                  Username
-                  <input
-                    type="text"
-                    name="username"
-                    id="username"
-                    value={formInputs.username}
-                    onChange={(event) => {
-                      setFormInputs({
-                        ...formInputs,
-                        username: event.target.value,
-                      });
-                    }}
-                  />
-                </label>
+                <label htmlFor="username">Username</label>
+                <input
+                  type="text"
+                  name="username"
+                  id="username"
+                  value={formInputs.username}
+                  onChange={(event) => {
+                    setFormInputs({
+                      ...formInputs,
+                      username: event.target.value,
+                    });
+                  }}
+                />
               </div>
               <div className="form-input">
-                <label htmlFor="email">
-                  Email
-                  <input
-                    type="email"
-                    name="email"
-                    id="email"
-                    value={formInputs.email}
-                    onChange={(event) => {
-                      setFormInputs({
-                        ...formInputs,
-                        email: event.target.value,
-                      });
-                    }}
-                  />
-                </label>
+                <label htmlFor="email">Email</label>
+                <input
+                  type="email"
+                  name="email"
+                  id="email"
+                  value={formInputs.email}
+                  onChange={(event) => {
+                    setFormInputs({
+                      ...formInputs,
+                      email: event.target.value,
+                    });
+                  }}
+                />
               </div>
               <div className="form-input">
-                <label htmlFor="password">
-                  Mot de passe
-                  <input
-                    type="password"
-                    name="password"
-                    id="password"
-                    value={formInputs.password}
-                    onChange={(event) => {
-                      setFormInputs({
-                        ...formInputs,
-                        password: event.target.value,
-                      });
-                    }}
-                  />
-                </label>
+                <label htmlFor="password">Mot de passe</label>
+                <input
+                  type="password"
+                  name="password"
+                  id="password"
+                  value={formInputs.password}
+                  onChange={(event) => {
+                    setFormInputs({
+                      ...formInputs,
+                      password: event.target.value,
+                    });
+                  }}
+                />
               </div>
               <button>Envoyer</button>
             </form>
@@ -139,6 +133,7 @@ const ConnectionModal = ({ modal, setModal, setUser }) => {
                   password: "",
                 });
                 setModal("login");
+                setHandleError(null);
               }}
             >
               Déjà un compte? Connecte toi!
@@ -153,38 +148,34 @@ const ConnectionModal = ({ modal, setModal, setUser }) => {
             <h2>Connection</h2>
             <form onSubmit={submitForm}>
               <div className="form-input">
-                <label htmlFor="email">
-                  Email
-                  <input
-                    type="email"
-                    name="email"
-                    id="email"
-                    value={formInputs.email}
-                    onChange={(event) => {
-                      setFormInputs({
-                        ...formInputs,
-                        email: event.target.value,
-                      });
-                    }}
-                  />
-                </label>
+                <label htmlFor="email">Email</label>
+                <input
+                  type="email"
+                  name="email"
+                  id="email"
+                  value={formInputs.email}
+                  onChange={(event) => {
+                    setFormInputs({
+                      ...formInputs,
+                      email: event.target.value,
+                    });
+                  }}
+                />
               </div>
               <div className="form-input">
-                <label htmlFor="password">
-                  Mot de passe
-                  <input
-                    type="password"
-                    name="password"
-                    id="password"
-                    value={formInputs.password}
-                    onChange={(event) => {
-                      setFormInputs({
-                        ...formInputs,
-                        password: event.target.value,
-                      });
-                    }}
-                  />
-                </label>
+                <label htmlFor="password">Mot de passe</label>
+                <input
+                  type="password"
+                  name="password"
+                  id="password"
+                  value={formInputs.password}
+                  onChange={(event) => {
+                    setFormInputs({
+                      ...formInputs,
+                      password: event.target.value,
+                    });
+                  }}
+                />
               </div>
               <button>Envoyer</button>
             </form>
@@ -204,6 +195,7 @@ const ConnectionModal = ({ modal, setModal, setUser }) => {
                   password: "",
                 });
                 setModal("signup");
+                setHandleError(null);
               }}
             >
               Pas encore de compte? Inscris toi!

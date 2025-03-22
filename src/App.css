@@ -59,6 +59,11 @@ h1 {
   font-size: 5em;
 }
 
+h2 {
+  font-size: 1.5em;
+  font-weight: 500;
+}
+
 h3 {
   font-weight: 600;
   font-size: 2.5em;
@@ -80,6 +85,14 @@ button:hover {
   background: var(--text-color);
   color: var(--thd-color);
   box-shadow: 0px 0px 0px rgba(0, 0, 0, 1);
+}
+
+input {
+  outline: none;
+  border: none;
+  font-family: "Roboto", sans-serif;
+  font-size: 1.2em;
+  font-weight: 500;
 }
 
 /* SPINNER */

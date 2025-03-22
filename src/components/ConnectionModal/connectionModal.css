@@ -13,34 +13,76 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 20px;
+  gap: 10px;
   background-color: var(--thd-color);
   padding: 20px 20px 30px 20px;
   border-radius: 15px;
+  width: 350px;
+}
+.modal h2 {
+  margin-bottom: 20px;
 }
 
 .modal form {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 30px;
+}
+
+.modal input {
+  background-color: var(--thd-color);
+  width: 100%;
+  color: var(--main-color);
+  padding-left: 10px;
+  text-align: center;
+}
+
+.form-input {
+  border-bottom: 1px solid var(--main-color);
+  width: 100%;
+  padding-bottom: 5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+}
+
+.form-input label {
+  font-size: 0.8em;
+  font-weight: 400;
+  opacity: 0.5;
+  text-wrap: nowrap;
+}
+
+.modal form button {
+  margin: 20px 0 20px 0;
 }
 
 .switch-login-signup {
   text-decoration: underline;
+  font-size: 0.9em;
+  margin-top: 20px;
 }
 
 .switch-login-signup:hover {
   cursor: pointer;
 }
 
+.exit-modal {
+  align-self: self-end;
+}
 .exit-modal:hover {
   cursor: pointer;
+  color: var(--main-color);
 }
 
 .authentication-error {
   color: var(--main-color);
+  text-align: center;
+  line-height: 1.3em;
 }
 
 .authentication-succeed {
   color: green;
+  text-align: center;
+  line-height: 1.3em;
 }

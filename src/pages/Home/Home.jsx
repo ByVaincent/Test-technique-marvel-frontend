@@ -9,7 +9,7 @@ const Home = () => {
       </section>
       <section className="snd-nav">
         <Link to={"/characters"} className="characters-link">
-          <h3>Heroes</h3>
+          <h3>Persos</h3>
         </Link>
 
         <Link to={"/comics"} className="comics-link">
