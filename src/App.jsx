@@ -19,7 +19,7 @@ function App() {
       <Header setModal={setModal} user={user} setUser={setUser} />
       <Routes>
         <Route path="/" element={<Home />}></Route>
-        <Route path="/characters" element={<Characters />}></Route>
+        <Route path="/characters" element={<Characters user={user} />}></Route>
         <Route
           path="/characters-details/:id"
           element={<CharactersDetails />}

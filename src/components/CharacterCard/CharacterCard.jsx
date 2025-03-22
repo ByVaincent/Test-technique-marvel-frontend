@@ -32,7 +32,6 @@ const CharacterCard = ({ character, token, favorites, setFavorites }) => {
         character={character}
         favorites={favorites}
         setFavorites={setFavorites}
-        token={token}
       />
     </div>
   );
