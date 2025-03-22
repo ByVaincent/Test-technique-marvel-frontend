@@ -1,13 +1,13 @@
 import "./favoritesPage.css";
 import Filter from "../../components/Filter/filter";
+import { Navigate } from "react-router-dom";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import Pagination from "../../components/Pagination/pagination";
 import CharacterCard from "../../components/CharacterCard/CharacterCard";
 import Cookies from "js-cookie";
 
-const FavoritesPage = () => {
-  const [charactersDatas, setCharactersDatas] = useState(null);
+const FavoritesPage = ({ user }) => {
   const [handleError, setHandleError] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [filters, setFilters] = useState({ name: "", page: 1 });
@@ -15,10 +15,6 @@ const FavoritesPage = () => {
   //favorites logic
   const [favorites, setFavorites] = useState(null);
 
-  console.log(favorites);
-
-  const token =
-    "txiixsMQobnsqgKc2eQyZPjPjB-4VQqP2FqUat16lN6hsvufe1Dk8_l5z1KJIEhB";
   useEffect(() => {
     const fetchFavoritesCharacters = async () => {
       try {
@@ -26,8 +22,7 @@ const FavoritesPage = () => {
           `${import.meta.env.VITE_BACKEND_URL}/favorites`,
           {
             headers: {
-              Authorization:
-                "Bearer txiixsMQobnsqgKc2eQyZPjPjB-4VQqP2FqUat16lN6hsvufe1Dk8_l5z1KJIEhB",
+              Authorization: `Bearer ${user.token}`,
             },
           }
         );
@@ -41,9 +36,11 @@ const FavoritesPage = () => {
     };
 
     fetchFavoritesCharacters();
-  }, [filters]);
+  }, [user]);
 
-  return (
+  return !user ? (
+    <Navigate to={"/"} />
+  ) : (
     <main className="characters">
       <div className="container">
         <section className="characters-section">
@@ -67,7 +64,7 @@ const FavoritesPage = () => {
                       character={character}
                       favorites={favorites}
                       setFavorites={setFavorites}
-                      token={token}
+                      user={user}
                     />
                   );
                 })}

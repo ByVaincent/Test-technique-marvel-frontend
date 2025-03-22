@@ -1,6 +1,8 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./App.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Cookies from "js-cookie";
+import axios from "axios";
 
 import Home from "./pages/Home/Home";
 import Characters from "./pages/Characters/Characters";
@@ -14,6 +16,26 @@ function App() {
   const [modal, setModal] = useState(false);
   const [user, setUser] = useState(null);
 
+  useEffect(() => {
+    const localToken = Cookies.get("token");
+
+    if (localToken) {
+      const fetchUserData = async () => {
+        const userData = await axios.get(
+          `${import.meta.env.VITE_BACKEND_URL}/user/data`,
+          {
+            headers: {
+              Authorization: `Bearer ${localToken}`,
+            },
+          }
+        );
+        setUser(userData.data.data);
+      };
+
+      fetchUserData();
+    }
+  }, []);
+
   return (
     <Router>
       <Header setModal={setModal} user={user} setUser={setUser} />
@@ -25,7 +47,10 @@ function App() {
           element={<CharactersDetails />}
         ></Route>
         <Route path="/comics" element={<Comics />}></Route>
-        <Route path="/favorites" element={<FavoritesPage />}></Route>
+        <Route
+          path="/favorites"
+          element={<FavoritesPage user={user} />}
+        ></Route>
       </Routes>
       <ConnectionModal modal={modal} setModal={setModal} setUser={setUser} />
     </Router>

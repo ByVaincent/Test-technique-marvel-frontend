@@ -2,6 +2,7 @@ import("./connectionModal.css");
 import { useState } from "react";
 import { ImCross } from "react-icons/im";
 import axios from "axios";
+import Cookies from "js-cookie";
 
 const ConnectionModal = ({ modal, setModal, setUser }) => {
   const [formInputs, setFormInputs] = useState({
@@ -34,12 +35,13 @@ const ConnectionModal = ({ modal, setModal, setUser }) => {
       }
 
       setUser(submit.data.data);
+      Cookies.set("token", submit.data.data.token, { expires: 7 });
       setSucceedHandler(submit.data.message);
       setTimeout(() => {
         setModal(false);
         setFormInputs({ ...formInputs, username: "", email: "", password: "" });
         setSucceedHandler(null);
-      }, 2000);
+      }, 1500);
     } catch (error) {
       console.log(error);
 

@@ -1,4 +1,5 @@
 import NavigationLink from "../NavigationLink";
+import Cookies from "js-cookie";
 
 import("./header.css");
 import logo from "/marvel_logo.svg";
@@ -11,8 +12,17 @@ const Header = ({ setModal, user, setUser }) => {
           <div className="logo">
             <img src={logo} alt="Logo de Marvel" />
           </div>
+          <div className="welcome">
+            Content de te revoir <span>{user.username} !</span>
+          </div>
           {user ? (
-            <button className="signup-login" onClick={() => setUser(null)}>
+            <button
+              className="signup-login"
+              onClick={() => {
+                Cookies.remove("token");
+                setUser(null);
+              }}
+            >
               Se déconnecter
             </button>
           ) : (
@@ -25,7 +35,7 @@ const Header = ({ setModal, user, setUser }) => {
           <NavigationLink text={"Accueil"} target={"/"} />
           <NavigationLink text={"Personnages"} target={"/characters"} />
           <NavigationLink text={"Comics"} target={"/comics"} />
-          <NavigationLink text={"Favoris"} target={"/favorites"} />
+          {user && <NavigationLink text={"Favoris"} target={"/favorites"} />}
         </nav>
       </div>
     </header>

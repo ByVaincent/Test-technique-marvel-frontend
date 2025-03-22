@@ -17,13 +17,9 @@ const Favorites = ({ character, token, favorites, setFavorites }) => {
     const favoritesIdArray = favorites.map((character) => character._id);
 
     if (favoritesIdArray.indexOf(character._id) !== -1) {
-      console.log(favoritesIdArray.indexOf(character._id));
-
       favorites.splice(favoritesIdArray.indexOf(character._id), 1);
-      console.log(favorites);
     } else {
       favorites.push(character);
-      console.log(favorites);
     }
 
     const updateFavorites = await axios.post(

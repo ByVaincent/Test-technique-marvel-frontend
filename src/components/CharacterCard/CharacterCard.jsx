@@ -2,7 +2,9 @@ import "./characterCard.css";
 import Favorites from "../Favorites/Favorites";
 import { Link } from "react-router-dom";
 
-const CharacterCard = ({ character, token, favorites, setFavorites }) => {
+const CharacterCard = ({ character, user, favorites, setFavorites }) => {
+  console.log(user);
+
   return (
     <div className="wrap-characters">
       <Link
@@ -28,11 +30,13 @@ const CharacterCard = ({ character, token, favorites, setFavorites }) => {
         </div>
       </Link>
 
-      <Favorites
-        character={character}
-        favorites={favorites}
-        setFavorites={setFavorites}
-      />
+      {user && (
+        <Favorites
+          character={character}
+          favorites={favorites}
+          setFavorites={setFavorites}
+        />
+      )}
     </div>
   );
 };

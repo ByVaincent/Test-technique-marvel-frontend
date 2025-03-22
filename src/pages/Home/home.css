@@ -1,15 +1,65 @@
 .hero {
-    background: url("/banner.jpg") top center;
-    height: 600px;
-    width: 100%;
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  background: url("/banner.jpg") top center;
+  height: 600px;
+  width: 100%;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.5);
 }
 
-.hero h1{
-    text-transform: uppercase;
-    position: absolute;
-    top: calc(50% + 15px)
+.hero h1 {
+  text-transform: uppercase;
+  position: absolute;
+  top: calc(50% + 15px);
+  text-shadow: 0px 0px 20px rgba(0, 0, 0, 1);
+}
+
+.characters-link {
+  background-image: url("/captain_america.jpg");
+  background-position: center;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.comics-link {
+  background: url("/comics.jpg") top;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.snd-nav {
+  padding: 50px 0;
+  display: flex;
+  justify-content: center;
+  gap: 10%;
+}
+.snd-nav a {
+  transition: all ease 0.3s;
+  border-radius: 15px;
+  border: 10px solid #ffffff;
+  border-color: linear-gradient(var(--main-color), var(--snd-color));
+  box-shadow: 0px 0px 4px rgba(0, 0, 0, 1);
+}
+.snd-nav a:hover {
+  transform: scale(1.1) rotate(2deg);
+  cursor: pointer;
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 1);
+}
+.snd-nav h3 {
+  text-transform: uppercase;
+  font-weight: 800;
+  font-size: 3em;
+  text-shadow: 0px 0px 5px rgba(0, 0, 0, 1);
+  transition: all ease 0.3s;
+}
+
+.snd-nav a:hover h3 {
+  transform: scale(1.2);
+  text-shadow: 0px 0px 5px rgba(0, 0, 0, 1);
 }
