@@ -15,22 +15,24 @@ const FavoritesPage = () => {
   //favorites logic
   const [favorites, setFavorites] = useState(null);
 
+  console.log(favorites);
+
   const token =
-    "MYTTK_oiIOQfamjjs7DmXMHKf0Br1_qW_a_LAKO2Xaq_sFDkPVdxL88ue-f3qQDd";
+    "txiixsMQobnsqgKc2eQyZPjPjB-4VQqP2FqUat16lN6hsvufe1Dk8_l5z1KJIEhB";
   useEffect(() => {
-    const fetchCharacters = async () => {
+    const fetchFavoritesCharacters = async () => {
       try {
         const favoritesCharacters = await axios.get(
           `${import.meta.env.VITE_BACKEND_URL}/favorites`,
           {
             headers: {
               Authorization:
-                "Bearer MYTTK_oiIOQfamjjs7DmXMHKf0Br1_qW_a_LAKO2Xaq_sFDkPVdxL88ue-f3qQDd",
+                "Bearer txiixsMQobnsqgKc2eQyZPjPjB-4VQqP2FqUat16lN6hsvufe1Dk8_l5z1KJIEhB",
             },
           }
         );
 
-        setFavorites(favoritesCharacters.data.favoritesCharacters);
+        setFavorites(favoritesCharacters.data.favorites);
         setIsLoading(false);
       } catch (error) {
         setHandleError(error.message);
@@ -38,18 +40,12 @@ const FavoritesPage = () => {
       }
     };
 
-    fetchCharacters();
+    fetchFavoritesCharacters();
   }, [filters]);
 
   return (
     <main className="characters">
       <div className="container">
-        <Filter
-          name={"characters-search"}
-          filters={filters}
-          setFilters={setFilters}
-        />
-
         <section className="characters-section">
           {isLoading ? (
             <div className="loader-container">
