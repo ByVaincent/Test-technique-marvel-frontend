@@ -2,7 +2,7 @@ import "./favorites.css";
 import Cookies from "js-cookie";
 import axios from "axios";
 
-const Favorites = ({ character, token, favorites, setFavorites }) => {
+const Favorites = ({ character, favorites, setFavorites }) => {
   //display favorite on or off
   let isFavorite = false;
 
@@ -14,6 +14,8 @@ const Favorites = ({ character, token, favorites, setFavorites }) => {
 
   //update favorites
   const addToFavorites = async () => {
+    console.log("yeah");
+
     const favoritesIdArray = favorites.map((character) => character._id);
 
     if (favoritesIdArray.indexOf(character._id) !== -1) {
@@ -33,42 +35,14 @@ const Favorites = ({ character, token, favorites, setFavorites }) => {
     );
 
     setFavorites(updateFavorites.data);
-
-    // if (Object.keys(favorites).length !== 0) {
-    //   let isDeleted = false;
-    //   //check is character is already in favorites
-    //   for (let id in favorites) {
-    //     if (id === character._id) {
-    //       Cookies.remove(character._id);
-    //       isDeleted = true;
-    //       setFavorites(() => {
-    //         const newState = Cookies.get();
-    //         return newState;
-    //       });
-    //     }
-    //   }
-    //   if (!isDeleted) {
-    //     Cookies.set(character._id, character.name, { expires: 1 });
-    //     setFavorites(() => {
-    //       const newState = Cookies.get();
-    //       return newState;
-    //     });
-    //   }
-    // } else {
-    //   Cookies.set(character._id, character.name, { expires: 1 });
-    //   setFavorites(() => {
-    //     const newState = Cookies.get();
-    //     return newState;
-    //   });
-    // }
   };
 
   return (
     <div
       className="favorites"
       onClick={(event) => {
+        addToFavorites();
         event.stopPropagation();
-        addToFavorites;
       }}
     >
       <div className={`star ${isFavorite && "user-fav"}`}></div>

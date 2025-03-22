@@ -1,13 +1,15 @@
 import "./characterCard.css";
 import Favorites from "../Favorites/Favorites";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const CharacterCard = ({ character, user, favorites, setFavorites }) => {
+  const navigate = useNavigate();
+
   return (
     <div className="wrap-characters">
-      <Link
-        to={`/characters-details/${character._id}`}
+      <div
         className="character-card"
+        onClick={() => navigate(`/characters-details/${character._id}`)}
       >
         <div className="card-img">
           <img
@@ -30,13 +32,17 @@ const CharacterCard = ({ character, user, favorites, setFavorites }) => {
           )}
         </div>
 
-        <div className="details">
-          <h4>{character.name && character.name}</h4>
+        <div className="dock">
+          <div className="details">
+            <h4>{character.name && character.name}</h4>
 
-          <p>{character.description && character.description} </p>
+            <p>
+              {character.description &&
+                character.description.substring(0, 100) + "..."}{" "}
+            </p>
+          </div>
         </div>
-        <div className="dock"></div>
-      </Link>
+      </div>
     </div>
   );
 };
