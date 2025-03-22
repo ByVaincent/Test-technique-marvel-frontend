@@ -64,7 +64,13 @@ const Favorites = ({ character, token, favorites, setFavorites }) => {
   };
 
   return (
-    <div className="favorites" onClick={addToFavorites}>
+    <div
+      className="favorites"
+      onClick={(event) => {
+        event.stopPropagation();
+        addToFavorites;
+      }}
+    >
       <div className={`star ${isFavorite && "user-fav"}`}></div>
     </div>
   );

@@ -32,14 +32,13 @@ const Comics = () => {
 
   return (
     <main className="comics">
+      <Filter
+        className={"comics-search"}
+        name={filters.title}
+        filters={filters}
+        setFilters={setFilters}
+      />
       <div className="container">
-        <Filter
-          className={"comics-search"}
-          name={filters.title}
-          filters={filters}
-          setFilters={setFilters}
-        />
-
         <section className="comics-section">
           {isLoading ? (
             <div className="loader-container">

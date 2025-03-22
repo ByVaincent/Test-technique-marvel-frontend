@@ -3,40 +3,40 @@ import Favorites from "../Favorites/Favorites";
 import { Link } from "react-router-dom";
 
 const CharacterCard = ({ character, user, favorites, setFavorites }) => {
-  console.log(user);
-
   return (
     <div className="wrap-characters">
       <Link
         to={`/characters-details/${character._id}`}
         className="character-card"
       >
-        <img
-          src={
-            character.thumbnail
-              ? character.thumbnail.path +
-                "/portrait_incredible" +
-                "." +
-                character.thumbnail.extension
-              : null
-          }
-          alt="Photo du personnage"
-        />
+        <div className="card-img">
+          <img
+            src={
+              character.thumbnail
+                ? character.thumbnail.path +
+                  "/portrait_incredible" +
+                  "." +
+                  character.thumbnail.extension
+                : null
+            }
+            alt="Photo du personnage"
+          />
+          {user && (
+            <Favorites
+              character={character}
+              favorites={favorites}
+              setFavorites={setFavorites}
+            />
+          )}
+        </div>
 
         <div className="details">
-          <h3>{character.name && character.name}</h3>
+          <h4>{character.name && character.name}</h4>
 
           <p>{character.description && character.description} </p>
         </div>
+        <div className="dock"></div>
       </Link>
-
-      {user && (
-        <Favorites
-          character={character}
-          favorites={favorites}
-          setFavorites={setFavorites}
-        />
-      )}
     </div>
   );
 };

@@ -1,4 +1,40 @@
 .filter {
-    display: flex;
-    justify-content: center;
+  display: flex;
+  justify-content: center;
+  padding: 20px 0;
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.5);
+  transition: all ease 0.2s;
+}
+
+.filter:hover {
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
+}
+
+.filter .form-input {
+  display: flex;
+  justify-content: center;
+  width: 200px;
+  border-bottom: 1px solid var(--thd-color);
+  padding-bottom: 2px;
+}
+.filter .form-input label {
+  color: var(--thd-color);
+}
+
+.filter .form-input input {
+  background-color: rgba(0, 0, 0, 0);
+  color: var(--thd-color);
+  width: 100%;
+}
+
+.filter .form-input input::placeholder {
+  font-size: 0.8em;
+  font-weight: 400;
+  color: var(--thd-color);
+  opacity: 0.7;
+}
+
+.no-result {
+  color: var(--thd-color);
+  text-shadow: 0px 0px 3px rgba(0, 0, 0, 0.2);
 }

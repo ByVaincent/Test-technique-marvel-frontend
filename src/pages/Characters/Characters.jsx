@@ -51,13 +51,12 @@ const Characters = ({ user }) => {
 
   return (
     <main className="characters">
+      <Filter
+        name={"characters-search"}
+        filters={filters}
+        setFilters={setFilters}
+      />
       <div className="container">
-        <Filter
-          name={"characters-search"}
-          filters={filters}
-          setFilters={setFilters}
-        />
-
         <section className="characters-section">
           {isLoading ? (
             <div className="loader-container">
@@ -68,7 +67,7 @@ const Characters = ({ user }) => {
               Une erreur est survenue: {handleError}
             </div>
           ) : charactersDatas.count === 0 ? (
-            <h3 className="loader-container">Aucun résultat</h3>
+            <h3 className="loader-container no-result">Aucun résultat</h3>
           ) : (
             <div className="characters-display">
               {charactersDatas &&
