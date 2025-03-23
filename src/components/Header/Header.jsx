@@ -24,7 +24,7 @@ const Header = ({ setModal, user, setUser }) => {
             onClick={() => setIsActive(!isActive)}
           />
 
-          {isActive && (
+          {/* {isActive && (
             <nav
               className={
                 isActive
@@ -59,7 +59,7 @@ const Header = ({ setModal, user, setUser }) => {
                 />
               )}
             </nav>
-          )}
+          )} */}
 
           {user && (
             <div className="welcome not-on-mobile">
