@@ -14,6 +14,7 @@ const Characters = ({ user }) => {
 
   //favorites logic
   const [favorites, setFavorites] = useState([]);
+  console.log(favorites);
 
   useEffect(() => {
     const fetchData = async () => {

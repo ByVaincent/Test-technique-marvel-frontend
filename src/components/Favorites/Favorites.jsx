@@ -2,7 +2,7 @@ import "./favorites.css";
 import Cookies from "js-cookie";
 import axios from "axios";
 
-const Favorites = ({ character, favorites, setFavorites }) => {
+const Favorites = ({ character, favorites, setFavorites, user }) => {
   //display favorite on or off
   let isFavorite = false;
 
@@ -14,8 +14,6 @@ const Favorites = ({ character, favorites, setFavorites }) => {
 
   //update favorites
   const addToFavorites = async () => {
-    console.log("yeah");
-
     const favoritesIdArray = favorites.map((character) => character._id);
 
     if (favoritesIdArray.indexOf(character._id) !== -1) {
@@ -29,10 +27,11 @@ const Favorites = ({ character, favorites, setFavorites }) => {
       { favorites },
       {
         headers: {
-          Authorization: `Bearer txiixsMQobnsqgKc2eQyZPjPjB-4VQqP2FqUat16lN6hsvufe1Dk8_l5z1KJIEhB`,
+          Authorization: `Bearer ${user.token}`,
         },
       }
     );
+    console.log("update", updateFavorites);
 
     setFavorites(updateFavorites.data);
   };

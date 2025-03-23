@@ -28,6 +28,7 @@ const CharacterCard = ({ character, user, favorites, setFavorites }) => {
               character={character}
               favorites={favorites}
               setFavorites={setFavorites}
+              user={user}
             />
           )}
         </div>
