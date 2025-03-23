@@ -19,7 +19,7 @@ const FavoritesPage = ({ user }) => {
     const fetchFavoritesCharacters = async () => {
       try {
         const favoritesCharacters = await axios.get(
-          `${import.meta.env.BACKEND_URL}/favorites`,
+          `${import.meta.env.VITE_BACKEND_URL}/favorites`,
           {
             headers: {
               Authorization: `Bearer ${user.token}`,

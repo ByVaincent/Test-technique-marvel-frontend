@@ -14,7 +14,7 @@ const CharactersDetails = () => {
     const fetchCharacter = async () => {
       try {
         const datas = await axios.get(
-          `${import.meta.env.BACKEND_URL}/characters/${id}`
+          `${import.meta.env.VITE_BACKEND_URL}/characters/${id}`
         );
 
         setcharactersDatas(datas.data);

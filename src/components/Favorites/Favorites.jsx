@@ -23,7 +23,7 @@ const Favorites = ({ character, favorites, setFavorites, user }) => {
     }
 
     const updateFavorites = await axios.post(
-      `${import.meta.env.BACKEND_URL}/favorites/update`,
+      `${import.meta.env.VITE_BACKEND_URL}/favorites/update`,
       { favorites },
       {
         headers: {
