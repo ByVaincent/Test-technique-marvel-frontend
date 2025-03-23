@@ -24,7 +24,7 @@ const Header = ({ setModal, user, setUser }) => {
             onClick={() => setIsActive(!isActive)}
           />
 
-          {/* {isActive && (
+          {isActive && (
             <nav
               className={
                 isActive
@@ -59,7 +59,7 @@ const Header = ({ setModal, user, setUser }) => {
                 />
               )}
             </nav>
-          )} */}
+          )}
 
           {user && (
             <div className="welcome not-on-mobile">
@@ -95,10 +95,32 @@ const Header = ({ setModal, user, setUser }) => {
       {!isActive && (
         <div className="container nav not-on-mobile">
           <nav>
-            <NavigationLink text={"Accueil"} target={"/"} />
-            <NavigationLink text={"Personnages"} target={"/characters"} />
-            <NavigationLink text={"Comics"} target={"/comics"} />
-            {user && <NavigationLink text={"Favoris"} target={"/favorites"} />}
+            <NavigationLink
+              text={"Accueil"}
+              target={"/"}
+              isActive={isActive}
+              setIsActive={setIsActive}
+            />
+            <NavigationLink
+              text={"Personnages"}
+              target={"/characters"}
+              isActive={isActive}
+              setIsActive={setIsActive}
+            />
+            <NavigationLink
+              text={"Comics"}
+              target={"/comics"}
+              isActive={isActive}
+              setIsActive={setIsActive}
+            />
+            {user && (
+              <NavigationLink
+                text={"Favoris"}
+                target={"/favorites"}
+                isActive={isActive}
+                setIsActive={setIsActive}
+              />
+            )}
           </nav>
         </div>
       )}
