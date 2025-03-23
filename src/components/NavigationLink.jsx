@@ -7,7 +7,7 @@ const NavigationLink = ({ target, text, isActive, setIsActive }) => {
       to={target}
       onClick={() => setIsActive(!isActive)}
     >
-      {text}{" "}
+      {text}
     </Link>
   );
 };

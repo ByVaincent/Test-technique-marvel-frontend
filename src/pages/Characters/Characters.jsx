@@ -4,7 +4,6 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import Pagination from "../../components/Pagination/pagination";
 import CharacterCard from "../../components/CharacterCard/CharacterCard";
-import Cookies from "js-cookie";
 
 const Characters = ({ user }) => {
   const [charactersDatas, setCharactersDatas] = useState(null);

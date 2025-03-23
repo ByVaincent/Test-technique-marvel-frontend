@@ -4,7 +4,7 @@
 
 .comics-display {
   display: flex;
-
+  justify-content: center;
   gap: 20px;
   flex-wrap: wrap;
 }
@@ -55,4 +55,42 @@
 
 .comics-card .details p {
   text-align: center;
+}
+
+@media (max-width: 1200px) {
+  .comics-card {
+    width: calc((100% - 100px) / 4);
+  }
+
+  .comics-card:active {
+    scale: 1.1;
+  }
+}
+
+@media (max-width: 1024px) {
+  .comics-card {
+    width: calc((100% - 80px) / 4);
+  }
+  .comics-card:active {
+    scale: 1.1;
+  }
+}
+
+@media (max-width: 768px) {
+  .comics-card {
+    width: calc((100% - 60px) / 3);
+  }
+  .comics-card:active {
+    scale: 1.1;
+  }
+}
+
+@media (max-width: 640px) {
+  .comics-card {
+    width: 90%;
+  }
+
+  .comics-card:active {
+    scale: 1.1;
+  }
 }

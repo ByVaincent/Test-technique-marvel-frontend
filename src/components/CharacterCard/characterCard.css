@@ -74,3 +74,27 @@
   z-index: 9;
   overflow: hidden;
 }
+
+@media (max-width: 1200px) {
+  .wrap-characters {
+    width: calc((100% - 100px) / 4);
+  }
+}
+
+@media (max-width: 1024px) {
+  .wrap-characters {
+    width: calc((100% - 80px) / 4);
+  }
+}
+
+@media (max-width: 768px) {
+  .wrap-characters {
+    width: calc((100% - 60px) / 3);
+  }
+}
+
+@media (max-width: 640px) {
+  .wrap-characters {
+    width: 90%;
+  }
+}

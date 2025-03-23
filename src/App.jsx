@@ -47,10 +47,12 @@ function App() {
           element={<CharactersDetails />}
         ></Route>
         <Route path="/comics" element={<Comics />}></Route>
-        <Route
-          path="/favorites"
-          element={<FavoritesPage user={user} />}
-        ></Route>
+        {user && (
+          <Route
+            path="/favorites"
+            element={<FavoritesPage user={user} />}
+          ></Route>
+        )}
       </Routes>
       <ConnectionModal modal={modal} setModal={setModal} setUser={setUser} />
     </Router>

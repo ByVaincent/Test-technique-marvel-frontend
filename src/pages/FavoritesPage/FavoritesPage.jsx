@@ -1,11 +1,9 @@
 import "./favoritesPage.css";
-import Filter from "../../components/Filter/filter";
 import { Navigate } from "react-router-dom";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import Pagination from "../../components/Pagination/pagination";
 import CharacterCard from "../../components/CharacterCard/CharacterCard";
-import Cookies from "js-cookie";
 
 const FavoritesPage = ({ user }) => {
   const [handleError, setHandleError] = useState(null);
