@@ -4,7 +4,6 @@ import AutoComplete from "./AutoComplete";
 
 const Filter = ({ name, filters, setFilters, data }) => {
   const [displayAutocomplete, setDisplayAutocomplete] = useState(false);
-  console.log(data);
 
   useEffect(() => {
     setDisplayAutocomplete(true);

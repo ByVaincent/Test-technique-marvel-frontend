@@ -9,8 +9,6 @@ const AutoComplete = ({ data, filters, setFilters }) => {
             <div
               className="auto-complete"
               onClick={() => {
-                console.log("click");
-
                 setFilters({
                   ...filters,
                   name: autocomplete.title

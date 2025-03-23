@@ -10,8 +10,6 @@ const Comics = () => {
   const [handleError, setHandleError] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [filters, setFilters] = useState({ name: "", page: 1 });
-  console.log(comicsDatas);
-  console.log(filters);
 
   useEffect(() => {
     const fetchcomics = async () => {

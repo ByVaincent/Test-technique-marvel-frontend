@@ -31,7 +31,6 @@ const Favorites = ({ character, favorites, setFavorites, user }) => {
         },
       }
     );
-    console.log("update", updateFavorites);
 
     setFavorites(updateFavorites.data);
   };

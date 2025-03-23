@@ -43,8 +43,6 @@ const ConnectionModal = ({ modal, setModal, setUser }) => {
         setSucceedHandler(null);
       }, 1500);
     } catch (error) {
-      console.log(error);
-
       setHandleError(error.response.data);
     }
   };

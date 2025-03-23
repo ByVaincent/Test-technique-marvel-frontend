@@ -14,7 +14,6 @@ const Characters = ({ user }) => {
 
   //favorites logic
   const [favorites, setFavorites] = useState([]);
-  console.log(favorites);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -73,7 +72,8 @@ const Characters = ({ user }) => {
           ) : (
             <div className="characters-display">
               {charactersDatas &&
-                charactersDatas.results.map((character) => {
+                !handleError &&
+                charactersDatas.results?.map((character) => {
                   return (
                     <CharacterCard
                       key={character._id}
