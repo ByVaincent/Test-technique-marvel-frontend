@@ -15,9 +15,9 @@ const Comics = () => {
     const fetchcomics = async () => {
       try {
         const datas = await axios.get(
-          `${import.meta.env.VITE_BACKEND_URL}/comics?${
-            "page=" + filters.page
-          }${filters.name && "&name=" + filters.name}`
+          `${import.meta.env.BACKEND_URL}/comics?${"page=" + filters.page}${
+            filters.name && "&name=" + filters.name
+          }`
         );
 
         setcomicsDatas(datas.data);

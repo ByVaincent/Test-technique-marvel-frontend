@@ -22,7 +22,7 @@ function App() {
     if (localToken) {
       const fetchUserData = async () => {
         const userData = await axios.get(
-          `${import.meta.env.VITE_BACKEND_URL}/user/data`,
+          `${import.meta.env.BACKEND_URL}/user/data`,
           {
             headers: {
               Authorization: `Bearer ${localToken}`,

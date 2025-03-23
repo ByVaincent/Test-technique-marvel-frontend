@@ -20,7 +20,7 @@ const Characters = ({ user }) => {
       try {
         if (user) {
           const fetchFavorites = await axios.get(
-            `${import.meta.env.VITE_BACKEND_URL}/favorites`,
+            `${import.meta.env.BACKEND_URL}/favorites`,
 
             {
               headers: {
@@ -33,9 +33,9 @@ const Characters = ({ user }) => {
         }
 
         const datas = await axios.get(
-          `${import.meta.env.VITE_BACKEND_URL}/characters?${
-            "page=" + filters.page
-          }${filters.name && "&name=" + filters.name}`
+          `${import.meta.env.BACKEND_URL}/characters?${"page=" + filters.page}${
+            filters.name && "&name=" + filters.name
+          }`
         );
 
         setCharactersDatas(datas.data);

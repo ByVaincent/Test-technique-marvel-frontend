@@ -24,12 +24,12 @@ const ConnectionModal = ({ modal, setModal, setUser }) => {
       let submit;
       if (modal === "signup") {
         submit = await axios.post(
-          `${import.meta.env.VITE_BACKEND_URL}/user/signup`,
+          `${import.meta.env.BACKEND_URL}/user/signup`,
           formInputs
         );
       } else if (modal === "login") {
         submit = await axios.post(
-          `${import.meta.env.VITE_BACKEND_URL}/user/login`,
+          `${import.meta.env.BACKEND_URL}/user/login`,
           formInputs
         );
       }
