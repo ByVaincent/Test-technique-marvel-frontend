@@ -6,6 +6,7 @@ import logo from "/marvel_logo.svg";
 import { GrLogin } from "react-icons/gr";
 import { AiOutlineMenu } from "react-icons/ai";
 import { useState } from "react";
+import NavigationLinkMobile from "../NavigationLinkMobile";
 
 const Header = ({ setModal, user, setUser }) => {
   const [isActive, setIsActive] = useState(false);
@@ -32,26 +33,26 @@ const Header = ({ setModal, user, setUser }) => {
                   : "mobile-nav mobile-nav not-on-big-screen "
               }
             >
-              <NavigationLink
+              <NavigationLinkMobile
                 text={"Accueil"}
                 target={"/"}
                 isActive={isActive}
                 setIsActive={setIsActive}
               />
-              <NavigationLink
+              <NavigationLinkMobile
                 text={"Personnages"}
                 target={"/characters"}
                 isActive={isActive}
                 setIsActive={setIsActive}
               />
-              <NavigationLink
+              <NavigationLinkMobile
                 text={"Comics"}
                 target={"/comics"}
                 isActive={isActive}
                 setIsActive={setIsActive}
               />
               {user && (
-                <NavigationLink
+                <NavigationLinkMobile
                   text={"Favoris"}
                   target={"/favorites"}
                   isActive={isActive}
