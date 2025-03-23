@@ -91,7 +91,7 @@ const Comics = () => {
         <Pagination
           filters={filters}
           setFilters={setFilters}
-          count={comicsDatas.count}
+          count={comicsDatas && comicsDatas.count}
         />
       )}
     </main>

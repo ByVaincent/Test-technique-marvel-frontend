@@ -93,7 +93,7 @@ const Characters = ({ user }) => {
         <Pagination
           filters={filters}
           setFilters={setFilters}
-          count={charactersDatas.count}
+          count={charactersDatas && charactersDatas.count}
         />
       )}
     </main>

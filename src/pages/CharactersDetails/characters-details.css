@@ -59,6 +59,31 @@
   overflow-x: scroll;
   padding: 15px 15px;
 }
+.character-comics-carousel::-webkit-scrollbar {
+  width: 100%;
+}
+
+.character-comics-carousel::-webkit-scrollbar-track {
+  background-color: rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+}
+
+.character-comics-carousel::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background: rgba(0, 0, 0, 0.3);
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
+}
+
+.character-comics-carousel::-webkit-scrollbar-thumb:hover {
+  background: var(--thd-color);
+  cursor: grab;
+  cursor: -moz-grab;
+  cursor: -webkit-grab;
+}
+
+.character-comics-carousel::-webkit-scrollbar-thumb:active {
+  cursor: grabbing;
+}
 
 .characters-comics-details {
   width: calc((110% - 40px) / 2);

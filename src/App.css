@@ -87,6 +87,7 @@ h4 {
 
 button {
   padding: 7px 10px;
+  min-width: 40px;
   border-radius: 12px;
   border: none;
   background: var(--thd-color);
@@ -94,6 +95,9 @@ button {
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.7);
   transition: all ease 0.2s;
   font-weight: 500;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 button:hover {
@@ -145,11 +149,38 @@ input {
   align-items: center;
 }
 
-@keyframes rotation {
-  0% {
-    transform: rotate(0deg);
+.not-on-big-screen {
+  display: none;
+}
+
+@media (max-width: 1048px) {
+  .container {
+    padding: inherit 10px;
   }
-  100% {
-    transform: rotate(360deg);
+
+  .not-on-big-screen {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 10px 5px;
+  }
+
+  .not-on-mobile {
+    display: none;
+  }
+
+  button {
+    min-height: 40px;
+  }
+
+  .not-on-big-sreen {
+    display: inherit;
+  }
+  h1 {
+    text-align: center;
+    font-size: 2.5em;
   }
 }

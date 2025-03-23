@@ -74,3 +74,45 @@
   transform: scale(1.2);
   text-shadow: 0px 0px 5px rgba(0, 0, 0, 1);
 }
+
+@media (max-width: 640px) {
+  .characters-link {
+    width: 100%;
+  }
+
+  .comics-link {
+    width: 100%;
+  }
+}
+
+@media (min-width: 640px) and (max-width: 1024px) {
+  .characters-link {
+    width: 40%;
+  }
+
+  .comics-link {
+    width: 40%;
+  }
+}
+@media (max-width: 640px) {
+  .snd-nav {
+    padding: 40px 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    gap: 30px;
+  }
+  .characters-link {
+    width: 100%;
+  }
+
+  .comics-link {
+    width: 100%;
+  }
+  .snd-nav a:hover {
+    transform: scale(1) rotate(20deg);
+    cursor: pointer;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 1);
+  }
+}

@@ -1,6 +1,14 @@
-import {Link} from "react-router-dom"
+import { Link } from "react-router-dom";
 
-const NavigationLink = ({target, text}) => {
-return <Link className="nav-link" to={target}>{text}</Link>
-}
-export default NavigationLink
+const NavigationLink = ({ target, text, isActive, setIsActive }) => {
+  return (
+    <Link
+      className="nav-link"
+      to={target}
+      onClick={() => setIsActive(!isActive)}
+    >
+      {text}{" "}
+    </Link>
+  );
+};
+export default NavigationLink;
