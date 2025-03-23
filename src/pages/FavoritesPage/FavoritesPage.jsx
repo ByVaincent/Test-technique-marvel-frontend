@@ -41,7 +41,7 @@ const FavoritesPage = ({ user }) => {
   return !user ? (
     <Navigate to={"/"} />
   ) : (
-    <main className="characters">
+    <main className="characters char-fav">
       <div className="container">
         <section className="characters-section">
           {isLoading ? (

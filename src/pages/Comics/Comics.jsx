@@ -10,6 +10,8 @@ const Comics = () => {
   const [handleError, setHandleError] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [filters, setFilters] = useState({ name: "", page: 1 });
+  console.log(comicsDatas);
+  console.log(filters);
 
   useEffect(() => {
     const fetchcomics = async () => {
@@ -37,6 +39,7 @@ const Comics = () => {
         name={filters.title}
         filters={filters}
         setFilters={setFilters}
+        data={comicsDatas}
       />
       <div className="container">
         <section className="comics-section">
@@ -48,14 +51,16 @@ const Comics = () => {
             <div className="loader-container">
               Une erreur est survenue: {handleError}
             </div>
+          ) : comicsDatas.count === 0 ? (
+            <h3 className="loader-container no-result">Aucun résultat</h3>
           ) : (
             <div className="comics-display">
               {comicsDatas &&
-                comicsDatas.results.map((comics) => {
+                comicsDatas.results?.map((comics) => {
                   return (
                     <Link
                       key={comics._id}
-                      to={`/comics-details/${comics._id}`}
+                      // to={`/comics-details/${comics._id}`}
                       className="comics-card"
                     >
                       <img
@@ -72,7 +77,10 @@ const Comics = () => {
 
                       <div className="details">
                         <h3>{comics.title && comics.title}</h3>
-                        <p>{comics.description && comics.description} </p>
+                        <p>
+                          {comics.description &&
+                            comics.description.substring(0, 100) + "..."}{" "}
+                        </p>
                       </div>
                     </Link>
                   );

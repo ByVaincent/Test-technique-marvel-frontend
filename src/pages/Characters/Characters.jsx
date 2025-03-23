@@ -53,6 +53,7 @@ const Characters = ({ user }) => {
     <main className="characters">
       <Filter
         name={"characters-search"}
+        data={charactersDatas}
         filters={filters}
         setFilters={setFilters}
       />
