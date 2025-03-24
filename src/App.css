@@ -141,6 +141,15 @@ input {
   border-bottom-color: #ff3d00;
 }
 
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
 .loader-container {
   width: 100%;
   height: 400px;
