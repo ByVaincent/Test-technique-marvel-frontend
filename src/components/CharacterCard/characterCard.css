@@ -74,6 +74,14 @@
   z-index: 9;
   overflow: hidden;
 }
+@media (pointer: coarse) {
+  .character-card .card-img:hover {
+    transform: translate(0, 0) rotate(0deg);
+    z-index: 1;
+    position: relative;
+    box-shadow: inherit;
+  }
+}
 
 @media (max-width: 1200px) {
   .wrap-characters {
@@ -95,6 +103,6 @@
 
 @media (max-width: 640px) {
   .wrap-characters {
-    width: 90%;
+    width: calc((100% - 40px) / 2);
   }
 }

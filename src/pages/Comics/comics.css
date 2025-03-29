@@ -57,6 +57,13 @@
   text-align: center;
 }
 
+@media (pointer: coarse) {
+  .comics-card .details:active {
+    background-color: rgba(0, 0, 0, 0);
+    user-select: none;
+  }
+}
+
 @media (max-width: 1200px) {
   .comics-card {
     width: calc((100% - 100px) / 4);
@@ -87,7 +94,7 @@
 
 @media (max-width: 640px) {
   .comics-card {
-    width: 90%;
+    width: calc((100% - 40px) / 2);
   }
 
   .comics-card:active {
